@@ -13,7 +13,7 @@ let dbUsers = [
         email: "faru@mail.com"
     },
     
-    {s
+    {
         username: "polobon",
         password: "010831",
         name: "Bon",
