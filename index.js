@@ -28,6 +28,12 @@ let dbUsers = [
     },
 ]
 
+for (let i = 0; i < dbUsers.length; i++) {
+    const hashedPassword = bcrypt.hashSync(dbUsers[i].password, saltRounds);
+    dbUsers[i].password = hashedPassword;
+}
+
+
 function login(username, password){
     console.log("someone tried to login with", username, password)
     
