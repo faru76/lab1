@@ -28,6 +28,7 @@ let dbUsers = [
     },
 ]
 
+//encrypt existing user passwords in the database
 for (let i = 0; i < dbUsers.length; i++) {
     const hashedPassword = bcrypt.hashSync(dbUsers[i].password, saltRounds);
     dbUsers[i].password = hashedPassword;
@@ -53,6 +54,7 @@ function login(username, password){
         return "Username not found"
     }
 }
+
 
 function register(newusername, newpassword, newname, newemail){
     //Check if username exists
@@ -89,7 +91,7 @@ app.post('/', (req, res) => {
 
 app.post('/bye', (req, res) => {
     res.send('Bye Bye World!')
-}) //this will not work as anything typed in the address bar will use GET method.
+}) //this will not work in browser as anything typed in the address bar will use GET method.
 
 app.post('/login',(req,res)=>{
     let data = req.body
